@@ -57,11 +57,11 @@ class MaskedConvolution2D(L.Convolution2D):
     #         x, self.W * self.mask, self.b, self.stride, self.pad, self.use_cudnn,
     #         deterministic=self.deterministic)
 
-    def to_gpu(self, device=None):
-        self._persistent.append('mask')
-        res = super().to_gpu(device)
-        self._persistent.remove('mask')
-        return res
+    # def to_gpu(self, device=None):
+    #     self._persistent.append('mask')
+    #     res = super().to_gpu(device)
+    #     self._persistent.remove('mask')
+    #     return res
 
 
 class CroppedConvolution(L.Convolution2D):
