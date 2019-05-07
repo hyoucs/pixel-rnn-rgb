@@ -17,8 +17,8 @@ import wavenet.utils as utils
 import wavenet.parameter_statistics as stats
 import cupy
 
-# cupy.cuda.set_allocator(None)
-# cupy.cuda.set_pinned_memory_allocator(None)
+cupy.cuda.set_allocator(None)
+cupy.cuda.set_pinned_memory_allocator(None)
 
 
 DATA_LOADER = {
@@ -53,7 +53,7 @@ def main():
                         help='Bound for gradient hard clipping')
     parser.add_argument('--levels', type=int, default=2,
                         help='Level number to quantisize pixel values')
-    parser.add_argument('--dataset', type=str, default='cifar',
+    parser.add_argument('--dataset', type=str, default='mnist',
                         help='Dataset for training. Either mnist or cifar.')
     parser.add_argument('--stats', type=bool, default=False,
                         help='Collect layerwise statistics')
