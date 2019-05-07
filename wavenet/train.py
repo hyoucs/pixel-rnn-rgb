@@ -39,7 +39,7 @@ def main():
                         help='Resume the training from snapshot')
     parser.add_argument('--out', '-o', default='',
                         help='Output directory')
-    parser.add_argument('--hidden_dim', '-d', type=int, default=128,
+    parser.add_argument('--hidden_dim', '-d', type=int, default=64,
                         help='Number of hidden dimensions')
     parser.add_argument('--out_hidden_dim', type=int, default=16,
                         help='Number of hidden dimensions')
