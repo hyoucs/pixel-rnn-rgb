@@ -57,7 +57,7 @@ def main():
                         help='Dataset for training. Either mnist or cifar.')
     parser.add_argument('--stats', type=bool, default=False,
                         help='Collect layerwise statistics')
-    args = parser.parse_args()
+    args = parser.parse_args() 
 
     IN_CHANNELS = 3  # RGB
     # multiply hidden dim by IN_CHANNELS to make sure mask is disible by IN_CHANNELS
