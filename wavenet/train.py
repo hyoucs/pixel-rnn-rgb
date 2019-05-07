@@ -17,8 +17,8 @@ import wavenet.utils as utils
 import wavenet.parameter_statistics as stats
 import cupy
 
-cupy.cuda.set_allocator(None)
-cupy.cuda.set_pinned_memory_allocator(None)
+# cupy.cuda.set_allocator(None)
+# cupy.cuda.set_pinned_memory_allocator(None)
 
 
 DATA_LOADER = {
