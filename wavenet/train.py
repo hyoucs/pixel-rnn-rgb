@@ -17,8 +17,8 @@ import wavenet.utils as utils
 import wavenet.parameter_statistics as stats
 import cupy
 
-cupy.cuda.set_allocator(None)
-cupy.cuda.set_pinned_memory_allocator(None)
+# cupy.cuda.set_allocator(None)
+# cupy.cuda.set_pinned_memory_allocator(None)
 
 
 DATA_LOADER = {
@@ -43,7 +43,7 @@ def main():
                         help='Number of hidden dimensions')
     parser.add_argument('--out_hidden_dim', type=int, default=16,
                         help='Number of hidden dimensions')
-    parser.add_argument('--blocks_num', '-n', type=int, default=15,
+    parser.add_argument('--blocks_num', '-n', type=int, default=5,
                         help='Number of layers')
     parser.add_argument('--clip', type=float, default=1.,
                         help='L2 norm gradient clipping')
