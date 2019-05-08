@@ -48,11 +48,11 @@ def main():
                         help='GPU ID (negative value indicates CPU)')
     parser.add_argument('--model', '-m', default='',
                         help='Path to model for generation')
-    parser.add_argument('--hidden_dim', '-d', type=int, default=128,
+    parser.add_argument('--hidden_dim', '-d', type=int, default=64,
                         help='Number of hidden dimensions')
     parser.add_argument('--out_hidden_dim', type=int, default=16,
                         help='Number of hidden dimensions')
-    parser.add_argument('--blocks_num', '-n', type=int, default=15,
+    parser.add_argument('--blocks_num', '-n', type=int, default=5,
                         help='Number of layers')
     parser.add_argument('--levels', type=int, default=2,
                         help='Level number to quantisize pixel values')
