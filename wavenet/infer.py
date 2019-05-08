@@ -28,7 +28,8 @@ def generate_and_save_samples(sample_fn, height, width, channels, count, filenam
         scipy.misc.toimage(images, cmin=0.0, cmax=255.0).save(filename)
 
     samples = chainer.Variable(
-        chainer.cuda.cupy.zeros((count ** 2, channels, height, width), dtype='float32'))
+        np.ndarray((count ** 2, channels, height, width), dtype='float32'))
+        # chainer.cuda.cupy.zeros((count ** 2, channels, height, width), dtype='float32'))
 
     with tqdm.tqdm(total=height*width*channels) as bar:
         for i in range(height):
