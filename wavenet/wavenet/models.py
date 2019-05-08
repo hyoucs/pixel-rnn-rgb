@@ -48,14 +48,15 @@ class MaskedConvolution2D(L.Convolution2D):
 
         self.mask = pre_mask
 
-    # def __call__(self, x):
-    #     if self.has_uninitialized_params:
-    #         with chainer.cuda.get_device(self._device_id):
-    #             self._initialize_params(x.shape[1])
+    def __call__(self, x):
+        return super().forward(x)
+        # if self.has_uninitialized_params:
+        #     with chainer.cuda.get_device(self._device_id):
+        #         self._initialize_params(x.shape[1])
 
-    #     return chainer.functions.connection.convolution_2d.convolution_2d(
-    #         x, self.W * self.mask, self.b, self.stride, self.pad, self.use_cudnn,
-    #         deterministic=self.deterministic)
+        # return chainer.functions.connection.convolution_2d.convolution_2d(
+        #     x, self.W * self.mask, self.b, self.stride, self.pad, self.use_cudnn,
+        #     deterministic=self.deterministic)
 
     # def to_gpu(self, device=None):
     #     self._persistent.append('mask')
@@ -70,7 +71,7 @@ class CroppedConvolution(L.Convolution2D):
 
 
     def __call__(self, x):
-        ret = super().__call__(x)
+        ret = super().forward(x)
         kh, kw = self.ksize
         pad_h, pad_w = self.pad
         h_crop = -(kh + 1) if pad_h == kh else None
@@ -182,7 +183,7 @@ class CausalDilatedConvolution1D(chainer.links.DilatedConvolution2D):
         self.crop = 2 * pad - dilate
 
     def __call__(self, x):
-        ret = super().__call__(x)
+        ret = super().forward(x)
         return ret[:, :, :, :-self.crop]  # B, C, 1, W
 
 
